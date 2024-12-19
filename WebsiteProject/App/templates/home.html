@@ -1,0 +1,152 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbFinder</title>
+    <link rel="stylesheet">
+    <style>
+        /* Global body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;      /* Adjust the container's width */
+            height: 90vh; 
+            font-family: Arial, sans-serif;
+            background-image: url('{% static "images/bg.jpg" %}');
+            background-size: cover;  /* Ensure the image covers the entire container */
+            background-position: center;  /* Center the image */
+            background-repeat: no-repeat;  /* Prevent the image from repeating */
+        }
+
+        .container {
+            margin: 10px auto;
+        }
+
+        /* Content inside the container */
+        .content {
+            padding: 10px;
+            background-color: transparent;
+            color: white;  /* White text */
+            font-size: 5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        span {
+            color: black;
+        }
+
+        /* Info section with descriptive text */
+        .info-section {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(41, 39, 39, 0.7); /* Two shadows: one dark and one red */
+            margin-top: 5%;
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 2px right, 2px down, 5px blur */
+            margin-top: 0%;
+        }
+
+        /* Style for the button */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 25px;
+            margin-left: 46%;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* New layout for About and How sections */
+        .sections {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            width: 45%;  /* Makes both sections take up 45% of the container */
+            padding: 0 10px;
+            background-color: transparent;  /* Light background for the text */
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            padding:5px;
+
+        }
+
+        .separator {
+            width: 1px; /* Thickness of the line */
+            background-color: white; /* Color of the line */
+            margin: 0 20px; /* Spacing between the line and the sections */
+            height: auto; /* Default height of the line */
+            display: inline-block; /* Ensures the line is treated as an inline element in the flex container */
+        }
+
+        .section a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .section p{
+            text-align: justify;
+        }
+        .section h2{
+            font-size: 3rem;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title section -->
+        <div class="content">
+            <h1>Herb<span>Finder</span></h1>
+        </div>
+        <!-- Description section -->
+        <div class="info-section">
+            <p>Discover the power of herbal plants</p>
+        </div>
+        <!-- Button section -->
+        <a href="upload/" class="button">Go to Upload</a>
+
+        <!-- About and How sections -->
+        <div class="sections">
+            <!-- How section (on the left) -->
+            <div class="section">
+                <h2>About</h2>
+                <p>
+                    Discover the world of herbs with our herbal classification website. 
+                    Explore, learn, and understand the unique properties and benefits of 
+                    various herbs, all categorized for easy access and deeper insights into 
+                    natural remedies.</p>
+            </div>
+
+            <div class="separator"></div>
+
+            <!-- About section (on the right) -->
+            <div class="section">
+                <h2>How</h2>
+                <p>To get started, click the 'Get Started' button on the homepage, which takes 
+                    you to the upload page. There, you can upload images of herbs either through 
+                    file upload or directly using your camera. Once the upload is complete, a results 
+                    container will pop up, displaying the classification details of the herb.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

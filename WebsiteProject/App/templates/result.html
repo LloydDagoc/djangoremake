@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            font-size: 4rem;
+            font-family: 'Quicksand', sans-serif;
+            color:rgb(23, 171, 171);
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .box {
+            flex: 1;
+            padding: 5px;
+            border: 0.5px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin: 5px;
+            text-align: center;
+        }
+        .box h2 {
+            margin-top: 0px;
+            font-size: 3rem;
+            color:rgb(11, 121, 11);
+            font-family: 'Quicksand', sans-serif;
+        }
+        .box p {
+            margin: 0;
+            font-size: 2rem;
+            color:rgb(11, 121, 11);
+        }
+        .benefits-container {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .benefits-container h2 {
+            margin-top: 0px;
+            font-size: 3rem;
+            color:rgb(11, 121, 11);
+            font-family: 'Quicksand', sans-serif;
+        }
+        .benefits-container p {
+            margin-top: 0px;
+            font-size: 2rem;
+            color:rgb(11, 121, 11);
+        }
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-left: 70%;
+            margin-top: 2%;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        
+        <!-- Row for Label and Confidence -->
+        <div class="row">
+            <div class="box">
+                <h2>Predicted Label</h2>
+                <p>{{ predicted_label }}</p>
+            </div>
+            <div class="box">
+                <h2>Confidence</h2>
+                <p>{{ confidence }}%</p>
+            </div>
+        </div>
+        
+        <!-- Benefits Section -->
+        <div class="benefits-container">
+            <h2>Benefits</h2>
+            <p>{{ benefits }}</p>
+        </div>
+        
+        <a href="{% url 'upload_image' %}" class="back-link">Upload Again</a>
+    </div>
+
+
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Launch confetti when the page loads
+        window.onload = function () {
+            const duration = 5 * 1000; // 5 seconds
+            const animationEnd = Date.now() + duration;
+
+            const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+            const interval = setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                confetti({
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    origin: {
+                        x: randomInRange(0.1, 0.9), // Random x-coordinate
+                        y: Math.random() - 0.2 // Slightly above the page
+                    }
+                });
+            }, 250);
+        };
+    </script>
+</body>
+</html>
